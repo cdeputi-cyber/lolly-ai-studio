@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#171226">
+  <meta name="description" content="LOLLY AI STUDIO - studio produksi micro drama AI pribadi.">
+  <link rel="manifest" href="manifest.webmanifest">
+  <title>LOLLY AI STUDIO</title>
+  <style>
+    :root{--bg:#100d19;--panel:#1c1729;--panel2:#262039;--line:#39304f;--ink:#f7f2ff;--muted:#b8adc9;--purple:#a78bfa;--pink:#f0abfc;--green:#86efac}
+    *{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top,#29203e 0,#100d19 55%);color:var(--ink);font:15px system-ui,-apple-system,Segoe UI,sans-serif;min-height:100vh}
+    header{padding:22px max(18px,calc((100% - 1100px)/2));border-bottom:1px solid #ffffff18;display:flex;align-items:center;justify-content:space-between;gap:12px}
+    .brand{font-weight:850;letter-spacing:1.5px}.brand span{color:var(--pink)}.tag{font-size:11px;color:var(--green);border:1px solid #86efac66;border-radius:20px;padding:5px 9px}
+    main{max-width:1100px;margin:auto;padding:28px 18px 60px}.hero{padding:25px;border:1px solid var(--line);border-radius:22px;background:linear-gradient(120deg,#33264d,#1c1729 65%);margin-bottom:22px}
+    h1{font-size:clamp(27px,5vw,42px);margin:0 0 8px}.sub{color:var(--muted);margin:0}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:13px}
+    .card{background:#1c1729dd;border:1px solid var(--line);border-radius:17px;padding:18px;min-height:130px}.card h3{margin:8px 0 5px;font-size:16px}.card p{color:var(--muted);font-size:13px;margin:0;line-height:1.5}.ico{font-size:24px}
+    .section{margin-top:28px}.section h2{font-size:20px}.workspace{display:grid;grid-template-columns:1.1fr .9fr;gap:15px}.panel{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:19px}
+    label{display:block;color:var(--muted);font-size:13px;margin:13px 0 6px}input,textarea,select{width:100%;background:#100d19;color:var(--ink);border:1px solid var(--line);border-radius:10px;padding:12px;font:inherit}textarea{min-height:95px;resize:vertical}
+    button{border:0;border-radius:11px;padding:12px 16px;background:linear-gradient(90deg,#8b5cf6,#c084fc);color:white;font-weight:750;font-size:14px;cursor:pointer;margin-top:14px}
+    button.secondary{background:var(--panel2);border:1px solid var(--line)}.saved{color:var(--green);font-size:13px;min-height:20px}.episode{padding:12px;border:1px solid var(--line);border-radius:12px;margin-top:9px}.episode strong{display:block}.small{font-size:12px;color:var(--muted)}
+    footer{text-align:center;color:var(--muted);font-size:12px;padding:28px}
+    @media(max-width:760px){.grid{grid-template-columns:repeat(2,1fr)}.workspace{grid-template-columns:1fr}}
+    @media(max-width:430px){.grid{grid-template-columns:1fr 1fr}.card{padding:14px;min-height:145px}}
+  </style>
+</head>
+<body>
+<header><div class="brand">LOLLY <span>AI</span> STUDIO</div><div class="tag">BETA · GRATIS</div></header>
+<main>
+  <section class="hero">
+    <h1>Your Personal AI Drama Studio 🎬</h1>
+    <p class="sub">Rancang cerita, karakter, storyboard, dialog, dan produksi micro drama dari satu tempat.</p>
+  </section>
+
+  <section class="grid" aria-label="Modul produksi">
+    <article class="card"><div class="ico">✍️</div><h3>Drama Creator</h3><p>Rancang judul, sinopsis, genre, dan episode.</p></article>
+    <article class="card"><div class="ico">👩‍🎤</div><h3>Character Studio</h3><p>Simpan profil dan ciri visual pemeran utama.</p></article>
+    <article class="card"><div class="ico">🎞️</div><h3>Storyboard</h3><p>Pecah episode menjadi adegan dan shot.</p></article>
+    <article class="card"><div class="ico">💬</div><h3>Dialogue & Voice</h3><p>Tulis dialog, narasi, dan arahan suara.</p></article>
+    <article class="card"><div class="ico">✨</div><h3>AI Video Production</h3><p>Siapkan prompt untuk layanan video AI.</p></article>
+    <article class="card"><div class="ico">📱</div><h3>Final Film Editor</h3><p>Rencanakan urutan klip untuk video vertikal.</p></article>
+  </section>
+
+  <section class="section">
+    <h2>Mulai proyek drama</h2>
+    <div class="workspace">
+      <div class="panel">
+        <form id="projectForm">
+          <label for="title">Judul serial</label><input id="title" value="DI BALIK SENYUMAN" required>
+          <label for="genre">Genre</label><select id="genre"><option>Drama keluarga</option><option>Romansa</option><option>Thriller</option><option>Inspiratif</option><option>Melodrama</option></select>
+          <label for="synopsis">Sinopsis</label><textarea id="synopsis" placeholder="Tuliskan ringkasan cerita serial...">Di balik senyum yang terlihat kuat, tersimpan luka dan rahasia yang perlahan terungkap.</textarea>
+          <label for="format">Format video</label><select id="format"><option>Vertikal 9:16</option><option>Horizontal 16:9</option><option>Persegi 1:1</option></select>
+          <label for="duration">Durasi per episode</label><select id="duration"><option>60–90 detik</option><option>30–60 detik</option><option>90–180 detik</option></select>
+          <button type="submit">Simpan proyek</button>
+          <div class="saved" id="status" aria-live="polite"></div>
+        </form>
+      </div>
+      <div class="panel">
+        <h3 style="margin-top:0">Proyek tersimpan</h3>
+        <div id="projectPreview" class="small">Belum ada proyek tersimpan.</div>
+        <button class="secondary" id="exportBtn" type="button">Ekspor data proyek (.json)</button>
+        <p class="small">Data versi awal disimpan di browser perangkat ini. Belum tersinkron antarperangkat.</p>
+      </div>
+    </div>
+  </section>
+  <footer>LOLLY AI STUDIO · Versi 0.1 · Prototype lokal, belum terhubung ke mesin generasi video.</footer>
+</main>
+<script>
+const KEY='lolly-ai-studio-project-v1';
+const form=document.getElementById('projectForm'), statusBox=document.getElementById('status'), preview=document.getElementById('projectPreview');
+function getProject(){try{return JSON.parse(localStorage.getItem(KEY)||'null')}catch{return null}}
+function render(){const p=getProject();preview.innerHTML='';if(!p){preview.textContent='Belum ada proyek tersimpan.';return}
+ const title=document.createElement('strong');title.textContent=p.title;preview.append(title);
+ const info=document.createElement('p');info.textContent=[p.genre,p.format,p.duration].join(' · ');preview.append(info);
+ const synopsis=document.createElement('p');synopsis.textContent=p.synopsis;preview.append(synopsis);
+ const date=document.createElement('p');date.className='small';date.textContent='Disimpan: '+new Date(p.updatedAt).toLocaleString('id-ID');preview.append(date)}
+form.addEventListener('submit',e=>{e.preventDefault();const p={title:document.getElementById('title').value.trim(),genre:document.getElementById('genre').value,synopsis:document.getElementById('synopsis').value.trim(),format:document.getElementById('format').value,duration:document.getElementById('duration').value,updatedAt:new Date().toISOString()};localStorage.setItem(KEY,JSON.stringify(p));statusBox.textContent='Proyek berhasil disimpan di perangkat ini.';render()});
+document.getElementById('exportBtn').addEventListener('click',()=>{const p=getProject();if(!p){statusBox.textContent='Simpan proyek terlebih dahulu.';return}const blob=new Blob([JSON.stringify(p,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='lolly-ai-studio-project.json';a.click();URL.revokeObjectURL(a.href)});
+render();
+if('serviceWorker' in navigator && location.protocol.startsWith('http')){window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}))}
+</script>
+</body>
+</html>
